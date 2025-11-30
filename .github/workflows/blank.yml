@@ -19,3 +19,8 @@ jobs:
           echo Hello, world!
           echo Add other actions to build,
           echo test, and deploy your project
+          
+      - name: Run another one
+        run: |
+          echo My name is Rajaa!
+      
