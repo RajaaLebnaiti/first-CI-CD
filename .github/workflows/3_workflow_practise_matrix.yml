@@ -15,5 +15,7 @@ jobs:
           python-version: 3.11
       - name: Afficher les versions
         run: |
-          echo Node version est : node --version
-          echo Python version est : python --version
+          echo "Node version est :"
+          node --version
+          "echo Python version est :"
+          python --version
