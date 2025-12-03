@@ -9,12 +9,12 @@ jobs:
 
       # checkout
       - name: Checkout
-        uses: actions/Checkout@v3
+        uses: actions/checkout@v3
 
       # Lire un fichier dans le répository
       - name: Read File
         run: | 
-          cat /workflows/file.txt
+          cat file.txt
           echo "Fichier est lu correctement"
 
       # Exécuter un script du repository
