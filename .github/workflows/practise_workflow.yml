@@ -14,7 +14,7 @@ jobs:
       # Lire un fichier dans le répository
       - name: Read File
         run: | 
-          cat file.txt
+          cat /workflows/file.txt
           echo "Fichier est lu correctement"
 
       # Exécuter un script du repository
