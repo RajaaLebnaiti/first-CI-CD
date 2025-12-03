@@ -1,0 +1,30 @@
+name : workflow complet avec checkout lecture exécution et copier
+on: 
+  push: 
+    branches: ["main"]
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      # checkout
+      - name: Checkout
+        uses: actions/Checkout@v3
+
+      # Lire un fichier dans le répository
+      - name: Read File
+        run: | 
+          cat file.txt
+          echo "Fichier est lu correctement"
+
+      # Exécuter un script du repository
+      - name: Run Script
+        run: |
+          python file.py
+          echo "Le script est bien exécuté"
+
+      # Copier un fichier dans /tmp
+      - name: Copy a file
+        run : |
+          cp file.txt /tmp/
+          echo "Le fichier a été copié avec succés"
