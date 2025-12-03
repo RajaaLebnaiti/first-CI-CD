@@ -1,0 +1,2 @@
+Hello, my name is Rajaa.
+The file is read successfully.
