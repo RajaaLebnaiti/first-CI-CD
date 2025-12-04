@@ -30,7 +30,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: resultats-jobB
+          name: resultats-jobA
           path: downloaded     # optionel le dossier ou extraire
       - name: Afficher le contenu de result.txt
         run: cat downloaded/result.txt
