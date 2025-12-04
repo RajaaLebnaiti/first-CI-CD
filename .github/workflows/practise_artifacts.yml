@@ -1,0 +1,36 @@
+name: Workflow avec artifacts
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  job-a:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Créer le fichier result.txt
+        run: |
+          echo "Ligne 1 : résultat du job A" > result.txt
+          echo "Ligne 2: timestamp $(date -u)" >> result.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultats-jobA
+          path: result.txt
+
+
+  job-b:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: resultats-jobB
+          path: downloaded     # optionel le dossier ou extraire
+      - name: Afficher le contenu de result.txt
+        run: cat downloaded/result.txt
