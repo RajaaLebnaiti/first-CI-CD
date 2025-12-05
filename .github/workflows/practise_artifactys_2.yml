@@ -10,9 +10,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Create 3 files
         run: |
-              cat .github/workflows/log1.txt
-              cat .github/workflows/log2.txt
-              cat .github/workflows/log3.txt
+              touch .github/workflows/log1.txt
+              touch .github/workflows/log2.txt
+              touch .github/workflows/log3.txt
       - name: Upload files as artifact
         uses: actions/upload-artifact@v4
         with:   
