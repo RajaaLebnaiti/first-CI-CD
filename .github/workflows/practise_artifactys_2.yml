@@ -17,11 +17,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:   
           name: uploaded-file1
-          path: .github/workflows/log1.txt
-          name: uploaded-file2
-          path: .github/workflows/log2.txt
-          name: uploaded-file3
-          path: .github/workflows/log3.txt
+          path: .github/workflows/*
+
 
 
   job-B:
