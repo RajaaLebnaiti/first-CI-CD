@@ -1,0 +1,41 @@
+name: Create files and zip files
+on:
+  push:
+    branches: ["main"]
+jobs:
+  job-A:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Create 3 files
+        run: |
+              cat .github/workflows/log1.txt
+              cat .github/workflows/log2.txt
+              cat .github/workflows/log3.txt
+      - name: Upload files as artifact
+        uses: actions/upload-artifact@v4
+        with:   
+          name: uploaded-file1
+          path: .github/workflows/log1.txt
+          name: uploaded-file2
+          path: .github/workflows/log2.txt
+          name: uploaded-file3
+          path: .github/workflows/log3.txt
+
+
+  job-B:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: download artifact
+      - name: create zip file
+        run:
+          zip archive_logs.zip *.txt
+      - name: show content of zip file
+        run:
+          unzip -l archive_logs.zip
