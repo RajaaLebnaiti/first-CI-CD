@@ -18,9 +18,6 @@ jobs:
         with:   
           name: uploaded-file1
           path: .github/workflows/*
-
-
-
   job-B:
     runs-on: ubuntu-latest
     steps:
