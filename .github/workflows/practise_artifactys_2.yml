@@ -10,15 +10,19 @@ jobs:
         uses: actions/checkout@v4
       - name: Create 3 files
         run: |
-              touch .github/workflows/log1.txt
-              touch .github/workflows/log2.txt
-              touch .github/workflows/log3.txt
+              touch log1.txt
+              touch log2.txt
+              touch log3.txt
       - name: Upload files as artifact
         uses: actions/upload-artifact@v4
         with:   
-          name: uploaded-file1
-          path: .github/workflows/*
+          name: uploaded-logs
+          path: |
+                log1.txt
+                log2.txt
+                log3.txt
   job-B:
+    needs: job-A
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,10 +30,10 @@ jobs:
       - name: download artifacts
         uses: actions/download-artifact@v4
         with:
-          name: uploaded-file1
+          name: uploaded-logs
       - name: create zip file
-        run:
+        run: |
           zip archive_logs.zip *.txt
       - name: show content of zip file
-        run:
+        run: |
           unzip -l archive_logs.zip
