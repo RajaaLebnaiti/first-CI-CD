@@ -1,8 +1,9 @@
 name: CML Iris Training
 
 on:
-  push:
+  pull_request:
     branches: ["main"]
+
 
 jobs:
   train-and-report:
@@ -11,18 +12,18 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-
+        
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
-
+          python-version: 3.8
+          
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install -r .github/iris_mlops/requirements.txt
 
       - name: Run training script
-        run: python train.py
+        run: python .github/iris_mlops/train.py
 
       - name: Install CML
         uses: iterative/setup-cml@v2
