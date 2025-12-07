@@ -34,4 +34,4 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cml comment create report.md --commit ${{ github.sha }}
+          cml comment create report.md 
