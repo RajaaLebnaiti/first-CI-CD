@@ -1,8 +1,9 @@
 name: CML Iris Training
 
 on:
-  push:
+  pull_request:
     branches: ["main"]
+
 
 jobs:
   train-and-report:
