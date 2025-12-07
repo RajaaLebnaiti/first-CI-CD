@@ -19,10 +19,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install -r .github/iris_mlops/requirements.txt
 
       - name: Run training script
-        run: python train.py
+        run: python .github/iris_mlops/python.py
 
       - name: Install CML
         uses: iterative/setup-cml@v2
