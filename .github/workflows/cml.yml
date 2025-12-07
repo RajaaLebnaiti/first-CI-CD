@@ -25,7 +25,7 @@ jobs:
         run: pip install -r .github/iris_mlops/requirements.txt
 
       - name: Run training script
-        run: python .github/iris_mlops/python.py
+        run: python .github/iris_mlops/train.py
 
       - name: Install CML
         uses: iterative/setup-cml@v2
